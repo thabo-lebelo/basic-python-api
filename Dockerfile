@@ -10,4 +10,6 @@ RUN pip install flask
 
 RUN pip install flask-cors
 
+COPY my_api.py /my_api.py
+
 ENTRYPOINT python my_api.py
