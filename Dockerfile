@@ -10,4 +10,4 @@ RUN pip install flask
 
 RUN pip install flask-cors
 
-ENTRYPOINT FLASK_APP = python my_api.py
+ENTRYPOINT python my_api.py
