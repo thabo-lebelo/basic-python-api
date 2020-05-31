@@ -6,7 +6,8 @@ app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})
 
 #This is the data to manipulate
-developers = [{"id": "1", "name": "Thabo", "role": "Developer"}, {"id": "2", "name": "Warren", "role": "Analyst"}, {"id": "3", "name": "Moses", "role": "Tester"}]
+team = [{"id": "1", "name": "Thabo", "role": "Developer"}, {"id": "2", "name": "Thubelihle", "role": "Architect"}, 
+    {"id": "3", "name": "Sello", "role": "Tutor"}, {"id": "4", "name": "Mavuso", "role": "SysOps"}]
 
 #GET REQUEST
 @app.route('/get', methods = ['GET'])
@@ -15,13 +16,13 @@ def getRequestHello():
     return jsonify({'result': 'Hello, this is a GET request!'}) 
 
 #GET REQUEST
-@app.route('/openaccounts', methods = ['GET'])
-def getAllDevelopers():
-    developers_names = {}
-    for developer in developers:
-        developers_names.update(developer)
-        print("Name : " + developers_names["name"])
-    return jsonify({"Developers": developers})
+@app.route('/', methods = ['GET'])
+def getNames():
+    names = {}
+    for name in team:
+        names.update(name)
+        print("Name : " + names["name"])
+    return jsonify({"LIT Group": team})
 
 #POST REQUEST
 @app.route('/post', methods = ['POST'])
@@ -39,8 +40,8 @@ def updateRequestHello():
 @app.route('/delete', methods = ['DELETE'])
 def deleteRequestHello():
     #return "Deleting your hard drive.....haha just kidding! I received a     DELETE request!"
-    return jsonify({'result': "Deleting supplier finance database.....haha just kidding! I received a DELETE request!"})
+    return jsonify({'result': "Deleting LIT Group... haha just kidding! I received a DELETE request!"})
 
 if __name__ == '__main__':
     app.debug = True
-    app.run(host='localhost', port=6000)  
+    app.run(host='localhost', port=5000)  
